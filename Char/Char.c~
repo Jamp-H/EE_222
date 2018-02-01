@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void)
+{
+char letter;
+
+printf("Enter a letter A-F or q to quit");
+scanf("%c", &letter); getchar();
+
+while(letter != q)
+{
+
+switch(letter)
+{
+case 'A':
+printf("Very Good!");
+break;
+case 'B':
+printf("Good!");
+break;
+case 'C':
+printf("Okay.");
+break;
+case 'D' || 'F':
+printf("Doomed!");
+break;
+default:
+printf("Enter a valid charecter: ");
+scanf("%c", &letter); getchar();
+}
+}
+return 0;
+
+}

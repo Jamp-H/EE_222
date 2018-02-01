@@ -1,0 +1,13 @@
+#include <stdio.h>
+int main(void)
+{
+float x, x1, y1, x2, y2, y;
+
+printf("Enter x1, y1, x2, y2, x respectively: ");
+scanf("%f, %f, %f, %f, %f", &x1, &y1, &x2, &y2, &x);
+
+y = ((x - x1)/(x2 - x1)) * (y2 - y1) + y1;
+
+printf("y = %f\n", y);
+return 0;
+}
