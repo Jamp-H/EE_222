@@ -1,28 +1,33 @@
 #import <stdio.h>
+#define MAX 30
 
 int main(void)
 {
-  //Algorithm = 3A +1 odd
-  //Algorithm = A / 2 even
-  //Do until a = 1
-  int startingA, a, count = 0;
-
-  printf("Enter a number: ");
-  scanf("%d", &startingA);
-  a = startingA;
-  while (a != 1)
-  {
-    while (a % 2 != 0)
+  int startingA = 0, a = 0, count = 0;
+    // Set loop to run 30x
+    //Do until a = 1
+    for (startingA = 1; startingA <= MAX; startingA++)
     {
-      a = (3*a) + 1;
-      count++;
+        count = 0;
+        a = startingA;
+          while (a != 1)
+          {
+            //Algorithm = A / 2 even
+            while (a % 2 != 0)
+            {
+              a = (3*a) + 1;
+              count++;
+            }
+            //Algorithm = 3A +1 odd
+            while (a % 2 == 0)
+            {
+              a /= 2;
+              count++;
+            }
+          }
+       // Display Output
+       printf("%d - %d.\n", startingA, count);
     }
-    while (a % 2 == 0)
-    {
-      a /= 2;
-      count++;
-    }
-  }
-  printf("%d took %d times to get to 1.\n", startingA, count);
-
+    return 0;
 }
+
