@@ -9,46 +9,41 @@ int main(void)
   int midNum, min, max, i;
   char ans;
 
-  midNum = MAX/2;
+  // set defined values to changeable ones
   min = MIN;
   max = MAX;
 
-  while(midNum != max || midNum != min || min != max)
+  while(midNum < max || midNum > min)
   {
+    // Get half total value
+    midNum = (max+min)/2;
+    // Display current guess to the user
     printf("Is your number greater than %d(y/n)? ", midNum);
     scanf("%c", &ans); getchar();
     switch(ans)
     {
+      // if guess is to high
       case 'y':
-        min = midNum;
         if (midNum < max)
         {
-          midNum = (midNum + max) / 2;
+          // reset min value to 1 more than current guess
+          min = midNum + 1;
         }
-        else
-        {
-          printf("Your number is : %i\n", midNum);
-          return 0;
-        }
-        printf("%d\n", midNum);
         break;
+      // if guess is to low
       case 'n':
-        max = midNum;
         if (midNum > min)
         {
-          midNum = (max + min)/2;
+          // set max to guess
+          max = midNum;
         }
-        else
-        {
-          printf("Your number is : %i\n", midNum);
-          return 0;
-        }
-        printf("%d\n", midNum);
         break;
       default:
       printf("Enter a valid charecter(y/n): ");
       scanf("%c", &ans); getchar();
     }
-
   }
+  // Print out correct number
+  printf("Your Number Is %d\n", midNum);
+  return 0;
 }
