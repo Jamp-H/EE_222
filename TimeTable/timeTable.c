@@ -20,30 +20,30 @@ int main(void)
   //use two nested loop running 1-10
   for (i = 1; i<=10; i++)
   {
-    for (size_t i = 1; i < 60; i++)
+    /*for (size_t i = 1; i < 60; i++)
     {
       printf("-");
       fprintf(times_table, "-");
     }
       printf("\n");
-      fprintf(times_table, "\n");
+      fprintf(times_table, "\n");*/
     for (j = 1; j<=10; j++)
     {
       comb = i*j;
-      fprintf(times_table, "|%4d|", comb);
-      printf("|%4d|", comb);
+      fprintf(times_table, "%4d", comb);
+      printf("%4d", comb);
     }
     fprintf(times_table, "%s", "\n");
     printf("\n");
   }
-  for (size_t i = 1; i < 60; i++)
+  /*for (size_t i = 1; i < 60; i++)
   {
     printf("-");
     fprintf(times_table, "-");
   }
     printf("\n");
-    fprintf(times_table, "\n");
+    fprintf(times_table, "\n");*/
 
   fclose(times_table);
-  return 0;
+
 }
