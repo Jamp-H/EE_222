@@ -1,11 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #define DATA_FILE "times_table_grid.data"
+
+void fprint_line(FILE*  stream, int length);
+
 int main(void)
 {
   int i,j,comb;
   FILE* times_table_grid;
-  fprint_line(FILE*  stream, int length);
+
 
   // Open file & write to it
   times_table_grid = fopen(DATA_FILE, "w");
@@ -19,12 +22,13 @@ int main(void)
   //use two nested loop running 1-10
   for (i = 1; i<=10; i++)
   {
+    fprint_line(times_table_grid,40);
     //fprint_line(times_table_grid, 51);
     for (j = 1; j<=10; j++)
     {
       comb = i*j;
       fprintf(times_table_grid, "|%3d", comb);
-      printf("|%3d|", comb);
+      printf("|%3d", comb);
     }
     fprintf(times_table_grid, "|");
     fprintf(times_table_grid, "%s", "\n");
@@ -33,13 +37,16 @@ int main(void)
   }
 
   fclose(times_table_grid);
-  void fprint_line(FILE* stream, int length)
-  {
-    for (int i = 1; i <=length; i++)
-    {
-      fprintf(stream, "-");
-    }
-    fprintf(stream, "\n");
-  }
 
+}
+
+void fprint_line(FILE* stream, int length)
+{
+  for (int i = 0; i <=length; i++)
+  {
+    fprintf(stream, "-");
+    printf("-");
+  }
+  fprintf(stream, "\n");
+  printf("\n");
 }
