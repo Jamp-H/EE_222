@@ -30,6 +30,7 @@ int main(void)
       fprintf(times_table_grid, "|%3d", comb);
       printf("|%3d", comb);
     }
+    printf("|");
     fprintf(times_table_grid, "|");
     fprintf(times_table_grid, "%s", "\n");
     printf("\n");
@@ -42,7 +43,8 @@ int main(void)
 
 void fprint_line(FILE* stream, int length)
 {
-  for (int i = 0; i <=length; i++)
+  int i;
+  for ( i = 0; i <=length; i++)
   {
     fprintf(stream, "-");
     printf("-");
