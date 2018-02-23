@@ -1,25 +1,21 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "tt.h"
-#define DATA_FILE "times_table_B.data"
+#define DATA_FILE "tt_binary.data"
+
+/*void read_forward(FILE* stream, int number_elements);
+int read_result(FILE* stream, int first, int second);
+void read_odd(FILE* stream, int number_elements);
+void read_even(FILE* stream, int number_elements);*/
 // Macro Guard
-#ifndef TT_H_INCLUDED
-#define TT_H_INCLUDED
 
-read_result(FILE* stream, int first, int second);
-read_forward(FILE* stream, int number_elements);
 
-#endif
 
-int main(void)
-{
 
-}
-
-void read_result(FILE* stream, int first, int second)
+int read_result(FILE* stream, int first, int second)
 {
   int value, position;
-
+  printf("Reading Result ...\n");
   position = (((first-1) *10) + (second - 1));
 
   fseek(stream,position * sizeof(int),SEEK_SET);
@@ -28,13 +24,65 @@ void read_result(FILE* stream, int first, int second)
   return value;
 }
 
-void read_forward(*FILE stream, int number_elements)
+void read_forward(FILE* stream, int number_elements)
 {
+  int value;
+  printf("Reading Forward ...\n");
   // Read and print out whole table from binary file
   fseek(stream, 0, SEEK_SET);
   while(number_elements--)
   {
-    fread()
-    fprint()
+    fread(&value, sizeof(int), 1,stream);
+    printf("%d ", value);
   }
+  printf("\n");
+}
+
+void read_odd(FILE* stream, int number_elements)
+{
+  int value;
+  printf("Reading Odd ...\n");
+  // Read and print out whole table from binary file
+  fseek(stream, 0, SEEK_SET);
+  while(number_elements--)
+  {
+    fread(&value, sizeof(int), 1,stream);
+    printf("%d ", value);
+    fseek(stream, sizeof(int), SEEK_CUR);
+  }
+  printf("\n");
+}
+
+void read_even(FILE* stream, int number_elements)
+{
+  int value;
+  printf("Reading Even ...\n");
+  // Read and print out whole table from binary file
+  fseek(stream, sizeof(int), SEEK_SET);
+  while(number_elements--)
+  {
+    fread(&value, sizeof(int), 1,stream);
+    printf("%d ", value);
+    fseek(stream, sizeof(int), SEEK_CUR);
+  }
+  printf("\n");
+}
+
+
+void read_backwards(FILE* stream, int number_elements)
+{
+  int value;
+  printf("Reading Backwards ...\n");
+  // Set pointer to beginning
+  fseek(stream, 0, SEEK_SET);
+  // Set pointer to end of file
+  fseek(stream, -sizeof(int), SEEK_END);
+  while(number_elements--)
+  {
+    fread(&value, sizeof(int), 1,stream);
+    printf("%d ", value);
+    // Negate fread
+    fseek(stream, -sizeof(int)*2, SEEK_CUR);
+  }
+  printf("\n");
 }
