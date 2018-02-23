@@ -16,4 +16,7 @@ int main(void)
   read_backwards(bianary_tt, NUM_ELEM);
   read_odd(bianary_tt, NUM_ELEM);
   read_even(bianary_tt, NUM_ELEM);
+
+  
+  return 0;
 }

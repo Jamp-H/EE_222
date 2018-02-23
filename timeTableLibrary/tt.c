@@ -3,11 +3,6 @@
 #include "tt.h"
 #define DATA_FILE "tt_binary.data"
 
-/*void read_forward(FILE* stream, int number_elements);
-int read_result(FILE* stream, int first, int second);
-void read_odd(FILE* stream, int number_elements);
-void read_even(FILE* stream, int number_elements);*/
-// Macro Guard
 
 
 
