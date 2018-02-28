@@ -8,8 +8,8 @@
 #include <errno.h>
 #include <string.h>
 
-#ifdef DEBUG
-// debug() - maskable debug message, expanded only if symbol DEBUG is defined
+#ifdef DBG
+// debug() - maskable debug message, expanded only if symbol DBG is defined
 #define debug(M, ...) fprintf(stderr, "\n[DEBUG] %s:%d: " M "\n", __FILE__, __LINE__, ##__VA_ARGS__)
 #else
 #define debug(M, ...)

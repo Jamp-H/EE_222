@@ -1,6 +1,5 @@
-#include "fib.h"
+#include "fibonacci.h"
 #include <stdio.h>
-// Use debug macro
 
 int main(void)
 {
@@ -10,6 +9,7 @@ int main(void)
 
   result = fib(value);
   
+
   printf("%d\n", result);
 
 }

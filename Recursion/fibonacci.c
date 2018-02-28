@@ -1,9 +1,10 @@
-#include "fib.h"
+#include "fibonacci.h"
 #include <stdio.h>
 #include <stdlib.h>
 
 int fib(int val)
 {
+  int value;
   if (val == 0)
   {
     return 0;
@@ -13,6 +14,6 @@ int fib(int val)
     return 1;
   }
 
-  return fib(val-1) + fib(val-2);
-
+  value =  fib(val-1) + fib(val-2);
+  return value;
 }
