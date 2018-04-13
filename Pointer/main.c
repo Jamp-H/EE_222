@@ -4,11 +4,9 @@ int main(void)
 {
 
     int a,b,c,stringLength;
-    char str1[] = "Hello";
-    char str2[] = "Screen";
-    // Allocate memory for char pointer for string array
-    char* str3 = (char*) malloc( sizeof(char) *(string_length(str1)
-                                                        + string_length(str2)));
+    char str1[] = "Pointers rock,";
+    char str2[] = "once you get the hang of it";
+
     a=1;
     b=3;
     c=2;
@@ -22,6 +20,7 @@ int main(void)
     stringLength = string_length(str1_ptr);
     printf("%d\n", stringLength);
 
-    printf(">%s<\n",string_concat(str1_ptr, str2_ptr, str3));
+
+    printf(">%s<\n",string_concat(str1_ptr, str2_ptr));
     return 0;
 }
