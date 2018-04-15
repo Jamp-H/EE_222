@@ -27,17 +27,20 @@ float* matrix_multiplication(float* left, float* right, int row, int shared, int
     float* result_matrix = (float*) malloc(sizeof(float) * (row * col));
     int current_row, current_col, current_shared;
 
-    for(current_row=0; current_row<row; current_row++)
+    for(current_shared = 0; current_shared < shared; current_shared++)
     {
-        for(current_col=0; current_col<col; current_col++)
+        for(current_row = 0; current_row < row; current_row++)
         {
-            for (current_shared = 0; current_shared< shared; current_shared++)
-                *(result_matrix + (current_row*current_col)) =
-                *(left + (current_row*current_shared)) * *(right +(current_shared*current_col) ) +
-                *(left +(current_row*current_shared) ) * *(right +(current_shared*current_col)) +
-                *(left + (current_row*current_shared)) * *(right + (current_shared*current_col));
+            for (current_col = 0; current_col < col; current_col++)
+            {
+                *(result_matrix + (current_row * current_col)) +=
+                *(left + ((current_row*current_shared)))
+                * *(right + ((current_shared*current_col) + current_col));
+                //printf("%f\n", *(result_matrix + (current_row*current_col)));
+            }
+            printf("%f\n", *(result_matrix + (current_row*current_col)));
         }
     }
-
+    printf("\n");
     return result_matrix;
 }
