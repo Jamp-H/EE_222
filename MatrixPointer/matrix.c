@@ -29,13 +29,12 @@ float* matrix_multiplication(float* left, float* right, int row, int shared, int
 
     for(current_shared = 0; current_shared < shared; current_shared++)
     {
-        for(current_row = 0; current_row < row; current_row++)
+        for(current_col = 0; current_col < row; current_col++)
         {
-            for (current_col = 0; current_col < col; current_col++)
+            for (current_row = 0; current_row < col; current_row++)
             {
                 *(result_matrix + (current_row * current_col)) +=
-                *(left + ((current_row*current_shared)))
-                * *(right + ((current_shared*current_col) + current_col));
+                *((left + current_row) * shared) * *((right + shared) * current_col);
                 //printf("%f\n", *(result_matrix + (current_row*current_col)));
             }
             printf("%f\n", *(result_matrix + (current_row*current_col)));

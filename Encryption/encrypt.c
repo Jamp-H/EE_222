@@ -13,7 +13,7 @@ void en_crypt(FILE* original, FILE* encrypted,char key[])
 
     while(1)
     {
-        printf("Working\n");
+        debug("Working\n");
         // Read char from original
         currentChar = fgetc(original);
         // if char is end of file break (EOF)
