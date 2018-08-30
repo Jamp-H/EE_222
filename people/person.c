@@ -1,3 +1,4 @@
+#define DEGUB
 #include "person.h"
 #include <stdlib.h>
 #include "dbg.h"
@@ -24,7 +25,7 @@ PEOPLE* person_create_list(char* data_file_name)
     person_next = malloc(sizeof(PEOPLE));
 
     // open the data file
-    people_data = fopen(data_file_name,"r");
+    probe(people_data = fopen(data_file_name,"r"), "Would not open");
 
     // we read the first record separately as that removes the need to check,
     // if the first person has already been set, every time we read a record
@@ -55,7 +56,7 @@ PEOPLE* person_create_list(char* data_file_name)
         // - update the next pointer of the new last person to point to NULL
         person_last->next = person_next;
         person_last = person_next;
-        person_next = NULL;
+        person_last->next = NULL;
 
         // provide space for the new next person
         person_next = malloc(sizeof(PERSON));
